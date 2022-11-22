@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Estate</title>
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <header class="header">
+      <div class="header__container">
+			<div class="header__column header__column_left">
+				<div class="header__logo">
+					<a href="#">
+						<img src="img/logo/logo.svg" alt="main-logo">
+					</a>
+				</div>
+			</div>
+			<div class="header__column">
+				<nav class="header__menu">
+					<ul class="menu">
+						<li class="menu__item">
+							<a href="#" class="menu__link">Listings</a>
+						</li>
+						<li class="menu__item">
+							<a href="#" class="menu__link">Newsroom</a>
+						</li>
+						<li class="menu__item">
+							<a href="#" class="menu__link">Contact</a>
+						</li>
+						<li class="menu__item">
+							<a href="#" class="menu__link">Our team</a>
+						</li>
+					</ul>
+				</nav>
+				<button type="button" class="menu__icon icon-menu"><span></span></button>
+			</div>
+			
+		</div>
+   </header>
+   <main class="main">
+		<div class="main-banner">
+			<div class="main-banner__heading">
+				<div class="main-banner__logo">
+					<img src="img/logo/logo2.svg" alt="logo">
+				</div>
+				<h1 class="main-banner__title">We're here to help you find a new home.</h1>
+			</div>
+			<a href="#goal" class="main-banner__arrow">
+				<img src="img/icons/Arrow33.svg" alt="arrow">
+			</a>
+		</div>
+		<section id='goal' class="our-goal">
+			<div class="our-goal__container">
+				<div class="our-goal__column">
+					<div class="our-goal__title block-title">
+						<div class="block-title__subtitle">Our goal</div>
+						<h2 class="block-title__title block-title__title_big">We are dedicated to finding a house that you'll love.</h2>
+					</div>
+				</div>
+				<div class="our-goal__column">
+					<div class="our-goal__text-block block-text">
+						<div class="block-text__text">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+							<p>Interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+						</div>
+						<div class="block-text__author persone">
+							<div class="persone__photo">
+								<img src="img/photos/photo.jpg" alt="persone">
+							</div>
+							<div class="persone__information">
+								<div class="persone__name">Ava Orn</div>
+								<div class="persone__position">Managing Broker</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+   <footer></footer>
+   <div class='popup' data-modal>
+		<div class='popup__block'>
+			<div class='popup__content'>
+				<button class='popup__close'>&times;</button>
+				<h4 class='popup__title'>Остались вопросы? Закажите обратный звонок</h4>
+				<div class='popup__form'>
+					<form class='form' action='#'' method='POST'>
+						<input class='form__input' type='text' name='name' placeholder="Ваше имя" required>
+						<input class='form__input form__input_phone' type='text' name='phone' placeholder="Ваш телефон" required>
+						<button class="form__button button">Получить консультацию</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+   <a href="#up" class="pageup">
+		<svg class="pageup__svg" viewBox="0 0 26 26" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M26 0H0V26H26V0ZM4.6593 17.7519L13.1233 10.33L21.5873 17.7519L22.9059 16.2481L13.7826 8.24813L13.1233 7.67L12.464 8.24813L3.3407 16.2481L4.6593 17.7519Z" fill="black"/>
+		</svg>
+	</a>
+   <script src="dist/bundle.js"></script>
+</body>
+</html>

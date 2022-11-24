@@ -76,6 +76,7 @@ h6 {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  position: relative;
   > main {
     flex: 1 1 auto;
   }
@@ -88,11 +89,6 @@ h6 {
   margin: 0px auto;
   padding: 0px 15px;
 }
-/* @media (max-width: 1140px) {
-  [class*="__container"] {
-    max-width: 970px;
-  }
-} */
 @media (max-width: 991.98px) {
   [class*="__container"] {
     max-width: 750px;
@@ -383,6 +379,11 @@ h6 {
         text-align: center;
       }
     }
+    // .block-title__subtitle_white
+
+    &_white {
+      color: #fafafc;
+    }
   }
 
   // .block-title__title
@@ -412,6 +413,11 @@ h6 {
       @media (max-width: 767.98px) {
         text-align: center;
       }
+    }
+    // .block-title__title_white
+
+    &_white {
+      color: #fafafc;
     }
   }
 }
@@ -965,7 +971,7 @@ h6 {
   // .testimonials__wrapper
 
   &__wrapper {
-
+    margin-bottom: 19.52px;
   }
 
   // .testimonials__slide
@@ -1076,27 +1082,120 @@ h6 {
   }
 }
 //------------------------------------------------------------------------------------------------------------------------------
+.contact {
+  background-color: #45525b;
+  // .contact__container
+
+  &__container {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  // .testimonials__title
+
+  &__title {
+    margin-bottom: 13px;
+  }
+
+  // .contact__text
+
+  &__text {
+    font-size: 18px;
+    line-height: 120%;
+    text-align: center;
+    color: #fafafc;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  // .contact__buttons
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    @media (max-width: 479.98px) {
+      flex-direction: column;
+    }
+  }
+
+  // .contact__button
+
+  &__button {
+    text-align: center;
+    color: #45525b;
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 11px 18px;
+    @media (max-width: 479.98px) {
+      width: 100%;
+    }
+    &:hover {
+      box-shadow: 0px 5px 25px 1px rgba(0, 0, 0, 0.42) inset;
+    }
+  }
+}
+//------------------------------------------------------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------------------------------------------------------
 .popup {
-  display: none;
+  // display: none;
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.219);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   // .popup__block
 
   &__block {
+    max-width: 500px;
+    max-height: 600px;
+    background-color: #fafafc;
+    border-radius: 18px;
+    box-shadow: 0px 10px 35px -13px rgba(0, 0, 0, 0.34) inset;
+    @media (max-width: 500px) {
+      width: 100%;
+      border-radius: 0;
+    }
   }
 
   // .popup__content
 
   &__content {
+    position: relative;
+    padding: 50px 40px;
+    @media (max-width: 500px) {
+      padding: 50px 15px;
+    }
   }
 
   // .popup__close
 
   &__close {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    font-size: 55px;
   }
 
   // .popup__title
 
   &__title {
+    text-align: center;
+    font-size: 36px;
+    line-height: 120%;
+    color: #45525b;
+    margin-bottom: 50px;
+    @media (max-width: 500px) {
+      font-size: 30px;
+    }
   }
 
   // .popup__form
@@ -1105,21 +1204,40 @@ h6 {
   }
 }
 .form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
   // .form__input
 
   &__input {
+    padding: 15px 20px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: 1px solid #45525b;
     // .form__input_phone
 
     &_phone {
+      margin-bottom: 30px;
     }
   }
 
   // .form__button
 
   &__button {
+    text-align: center;
+    color: #fafafc;
+    font-size: 20px;
+    background-color: #45525bd7;
+    border-radius: 6px;
+    padding: 15px 20px;
+    align-self: center;
+    @media (max-width: 500px) {
+      align-self: stretch;
+    }
+    &:hover {
+      box-shadow: 0px 5px 25px 1px rgba(0, 0, 0, 0.42) inset;
+    }
   }
-}
-.button {
 }
 .pageup {
   display: none;

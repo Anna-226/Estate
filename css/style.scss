@@ -655,6 +655,7 @@ h6 {
   padding-bottom: 22px;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.03);
   border-radius: 8px;
+  overflow: hidden;
   transition: all 0.3s ease 0s;
   flex: 1 0 30%;
   min-width: 334px;
@@ -673,8 +674,8 @@ h6 {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      max-width: 100%;
-      max-height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
     }
   }
@@ -880,6 +881,7 @@ h6 {
   background-color: #fff;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.03);
   border-radius: 8px;
+  overflow: hidden;
   transition: all 0.3s ease 0s;
   flex: 1 0 30%;
   &:hover {
@@ -892,8 +894,8 @@ h6 {
     position: relative;
     & img {
       position: absolute;
-      max-width: 100%;
-      max-height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
     }
   }
@@ -948,34 +950,81 @@ h6 {
   // .testimonials__slider
 
   &__slider {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -2000px;
+      height: 100%;
+      width: 2000px;
+      background-color: #fff;
+    }
   }
 
   // .testimonials__wrapper
 
   &__wrapper {
+
   }
 
   // .testimonials__slide
 
   &__slide {
+    width: 584px;
+    @media (max-width: 650px) {
+      width: 300px;
+    }
   }
-}
-.swiper {
-}
-.swiper-wrapper {
-  position: relative;
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -2000px;
-    height: 100%;
-    width: 2000px;
-    background-color: #fff;
+
+  // .testimonials__buttons
+
+  &__buttons {
+    display: flex;
+    column-gap: 50px;
+    padding: 19px 20px;
+    justify-content: flex-end;
   }
-}
-.swiper-slide {
-  width: 584px;
+
+  // .testimonials__button
+
+  &__button {
+    position: relative;
+    width: 20px;
+    height: 22px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -19px;
+      left: -19px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #52503b;
+      transition: all 0.3s ease 0s;
+    }
+    &:hover {
+      &::before {
+        border: 2px solid rgb(138, 182, 231);
+      }
+    }
+    @media (max-width: 767.98px) {
+      &::before {
+        display: none;
+      }
+    }
+    // .testimonials__button_prev
+
+    &_prev {
+      background: url("../img/icons/Arrow2.svg") 0 0 / cover no-repeat;
+    }
+
+    // .testimonials__button_next
+
+    &_next {
+      background: url("../img/icons/Arrow3.svg") 0 0 / cover no-repeat;
+    }
+  }
 }
 .feedback {
   border: 1px solid rgba(82, 80, 59, 0.1);
@@ -1019,62 +1068,13 @@ h6 {
     column-gap: 10px;
     align-items: center;
     &::before {
-      content: '';
+      content: "";
       width: 2px;
       height: 24px;
-      background-color: #FF8A63;
+      background-color: #ff8a63;
     }
   }
 }
-.buttons {
-  display: flex;
-  column-gap: 50px;
-  padding: 19px 20px;
-  justify-content: flex-end;
-}
-.swiper-button-prev {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  background: url('../img/icons/Arrow2.svg') 0 0 / cover no-repeat;
-  &::before {
-      content: "";
-      position: absolute;
-      top: -19px;
-      left: -19px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 2px solid #52503B;
-    }
-    &:hover {
-      &::before {
-        color: rgb(63, 63, 192)
-      }
-    }
-    @media (max-width: 767.98px) {
-      &::before {
-        display: none;
-      }
-    }
-}
-.swiper-button-next {
-  position: relative;
-  width: 20px;
-  height: 22px;
-  background: url('../img/icons/Arrow3.svg') 0 0 / cover no-repeat;
-    &::before {
-      content: "";
-      position: absolute;
-      top: -19px;
-      left: -19px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 2px solid #52503B;
-    }
-}
-
 //------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------
 .popup {

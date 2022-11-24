@@ -8,11 +8,9 @@ window.addEventListener('DOMContentLoaded', () => {
    burger();
    scrolling();
    slider({
-      sliderSelector: '.swiper',
-      slideSelector: '.swiper-slide',
-      wrapper: '.swiper-wrapper',
-      slidesFieldSelector: '.testimonials__field',
-      btnPrevSelector: '.swiper-button-prev',
-      btnNextSelector: '.swiper-button-next',
+      slideSelector: '.testimonials__slide',
+      wrapper: '.testimonials__wrapper',
+      btnPrevSelector: '.testimonials__button_prev',
+      btnNextSelector: '.testimonials__button_next',
    });
 });

@@ -95,40 +95,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function slider({slideSelector, wrapper, slidesFieldSelector, btnPrevSelector, btnNextSelector}) {
+function slider({slideSelector, wrapper, btnPrevSelector, btnNextSelector}) {
 
    const slides = document.querySelectorAll(slideSelector),
          slidesWrapper = document.querySelector(wrapper),
-         slidesField = document.querySelector(slidesFieldSelector),
          btnPrev = document.querySelector(btnPrevSelector),
          btnNext = document.querySelector(btnNextSelector);
 
    let offset = 0,
-       gap = 20;
+       gap = 20,
+       slideWidth,
+       wrapperWidth;
+   
+   function sliderInit() {
+      slideWidth = window.getComputedStyle(slides[0]).width;
+      wrapperWidth =(+parseFloat(slideWidth) + gap)*slides.length;
+      slidesWrapper.style.width = wrapperWidth + 'px';
+      slidesWrapper.style.display = 'flex';
+      slidesWrapper.style.gap = gap +'px';
+      slidesWrapper.style.transition = '0.5s all';
+   }
+   sliderInit();
 
-   const width = window.getComputedStyle(slides[0]).width;
-   slidesField.style.width = 100 * slides.length + '%';
-   slidesField.style.display = 'flex';
-   slidesField.style.gap = gap +'px';
-   slidesField.style.transition = '0.5s all';
+   window.addEventListener('resize', () => {
+      sliderInit();
+   });
 
    function changeSlide(translation) {
-      slidesField.style.transform = `translateX(${translation}px)`;
+      slidesWrapper.style.transform = `translateX(${translation}px)`;
    }
+   
    btnNext.addEventListener('click', () => {
-      if (offset <= -((+parseFloat(width)+gap/2) * (slides.length-1))) {
+      if (offset <= -((+parseFloat(slideWidth)+gap) * (slides.length-1))) {
          offset = 0;
       }else{
-         offset -= +parseFloat(width) + gap/2;
+         offset -= +parseFloat(slideWidth) + gap;
       }
       changeSlide(offset);
    });
 
    btnPrev.addEventListener('click', () => {
       if (offset >= 0) {
-         offset = -((+parseFloat(width)+gap/2) * (slides.length-1));
+         offset = -((+parseFloat(slideWidth)+gap) * (slides.length-1));
       }else{
-         offset += +parseFloat(width) + gap/2;
+         offset += +parseFloat(slideWidth) + gap;
       }
       changeSlide(offset);
    });
@@ -215,12 +225,10 @@ window.addEventListener('DOMContentLoaded', () => {
    (0,_modules_burger__WEBPACK_IMPORTED_MODULE_0__["default"])();
    (0,_modules_scrolling__WEBPACK_IMPORTED_MODULE_1__["default"])();
    (0,_modules_slider__WEBPACK_IMPORTED_MODULE_2__["default"])({
-      sliderSelector: '.swiper',
-      slideSelector: '.swiper-slide',
-      wrapper: '.swiper-wrapper',
-      slidesFieldSelector: '.testimonials__field',
-      btnPrevSelector: '.swiper-button-prev',
-      btnNextSelector: '.swiper-button-next',
+      slideSelector: '.testimonials__slide',
+      wrapper: '.testimonials__wrapper',
+      btnPrevSelector: '.testimonials__button_prev',
+      btnNextSelector: '.testimonials__button_next',
    });
 });
 })();

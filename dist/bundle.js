@@ -34,6 +34,109 @@ const burger = () => {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (burger);
 
+/***/ }),
+
+/***/ "./js/modules/scrolling.js":
+/*!*********************************!*\
+  !*** ./js/modules/scrolling.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const scrolling = () => {
+
+   let links = document.querySelectorAll('[href^="#"]'),
+       speed = 0.7;
+
+   links.forEach(link => {
+      link.addEventListener('click', function(event) {
+         event.preventDefault();
+
+         let widthTop = Math.round(document.documentElement.scrollTop || document.body.scrollTop),
+             hash = this.hash,
+             toBlock = document.querySelector(hash).getBoundingClientRect().top,
+             start = null;
+
+         requestAnimationFrame(step);
+         function step(time) {
+            if (start === null) {
+               start = time;
+            }
+
+            let progress = time - start,
+                r = (toBlock < 0 ? Math.max(widthTop - progress/speed, widthTop + toBlock) : Math.min(widthTop + progress/speed, widthTop + toBlock));
+
+            document.documentElement.scrollTo(0, r);
+
+            if (r != widthTop + toBlock) {
+               requestAnimationFrame(step);
+            } else {
+               location.hash = hash;
+            }
+         }
+      });
+   });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (scrolling);
+
+/***/ }),
+
+/***/ "./js/modules/slider.js":
+/*!******************************!*\
+  !*** ./js/modules/slider.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function slider({slideSelector, wrapper, slidesFieldSelector, btnPrevSelector, btnNextSelector}) {
+
+   const slides = document.querySelectorAll(slideSelector),
+         slidesWrapper = document.querySelector(wrapper),
+         slidesField = document.querySelector(slidesFieldSelector),
+         btnPrev = document.querySelector(btnPrevSelector),
+         btnNext = document.querySelector(btnNextSelector);
+
+   let offset = 0,
+       gap = 20;
+
+   const width = window.getComputedStyle(slides[0]).width;
+   slidesField.style.width = 100 * slides.length + '%';
+   slidesField.style.display = 'flex';
+   slidesField.style.gap = gap +'px';
+   slidesField.style.transition = '0.5s all';
+
+   function changeSlide(translation) {
+      slidesField.style.transform = `translateX(${translation}px)`;
+   }
+   btnNext.addEventListener('click', () => {
+      if (offset <= -((+parseFloat(width)+gap/2) * (slides.length-1))) {
+         offset = 0;
+      }else{
+         offset -= +parseFloat(width) + gap/2;
+      }
+      changeSlide(offset);
+   });
+
+   btnPrev.addEventListener('click', () => {
+      if (offset >= 0) {
+         offset = -((+parseFloat(width)+gap/2) * (slides.length-1));
+      }else{
+         offset += +parseFloat(width) + gap/2;
+      }
+      changeSlide(offset);
+   });
+}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (slider);
+
 /***/ })
 
 /******/ 	});
@@ -100,12 +203,25 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/burger */ "./js/modules/burger.js");
+/* harmony import */ var _modules_scrolling__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/scrolling */ "./js/modules/scrolling.js");
+/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/slider */ "./js/modules/slider.js");
+
+
+
 
 
 window.addEventListener('DOMContentLoaded', () => {
    'use strict';
    (0,_modules_burger__WEBPACK_IMPORTED_MODULE_0__["default"])();
-
+   (0,_modules_scrolling__WEBPACK_IMPORTED_MODULE_1__["default"])();
+   (0,_modules_slider__WEBPACK_IMPORTED_MODULE_2__["default"])({
+      sliderSelector: '.swiper',
+      slideSelector: '.swiper-slide',
+      wrapper: '.swiper-wrapper',
+      slidesFieldSelector: '.testimonials__field',
+      btnPrevSelector: '.swiper-button-prev',
+      btnNextSelector: '.swiper-button-next',
+   });
 });
 })();
 

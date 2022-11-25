@@ -1196,7 +1196,194 @@ h6 {
           box-shadow: 0px 5px 25px 1px rgba(0, 0, 0, 0.42) inset;
 }
 
+.footer {
+  background-color: #292c32;
+}
+
+.footer__container {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.footer__first-floor {
+  text-align: center;
+  margin-bottom: 75.98px;
+}
+
+@media (max-width: 479.98px) {
+  .footer__first-floor {
+    margin-bottom: 40px;
+  }
+}
+
+.footer__second-floor {
+  margin-bottom: 28px;
+}
+
+.main-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 15px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media (max-width: 479.98px) {
+  .main-footer {
+    display: block;
+    text-align: center;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .main-footer__column:not(:last-child) {
+    border-bottom: 1px solid #fafafc59;
+  }
+}
+
+.links-footer__title {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ff8a63;
+  margin-bottom: 9px;
+}
+
+@media (max-width: 479.98px) {
+  .links-footer__title {
+    margin-top: 9px;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .links-footer__links {
+    display: none;
+  }
+}
+
+.links-footer__link {
+  display: block;
+  margin-bottom: 9px;
+  color: #ffffff;
+}
+
+.subscribe {
+  max-width: 458px;
+}
+
+@media (max-width: 991.98px) {
+  .subscribe {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .subscribe {
+    margin-top: 9px;
+  }
+}
+
+.subscribe__title {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ff8a63;
+}
+
+.subscribe__text {
+  color: #fafafc;
+  margin-bottom: 10px;
+}
+
+.subscribe__input {
+  max-width: 458px;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.subscribe__button {
+  color: #ffffff;
+  background: #3a4443;
+  border-radius: 10px;
+  padding: 8px;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+}
+
+.input {
+  width: 100%;
+  padding: 15px 34px;
+}
+
+.input::-webkit-input-placeholder {
+  color: #6f7278;
+}
+
+.input:-ms-input-placeholder {
+  color: #6f7278;
+}
+
+.input::-ms-input-placeholder {
+  color: #6f7278;
+}
+
+.input::placeholder {
+  color: #6f7278;
+}
+
+.copyright {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 28px;
+}
+
+@media (max-width: 479.98px) {
+  .copyright {
+    text-align: center;
+  }
+}
+
+.copyright__text {
+  color: #ffffff;
+}
+
+.copyright__social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 479.98px) {
+  .copyright__social {
+    margin: 0 auto;
+  }
+}
+
+.copyright__icon {
+  width: 24px;
+  height: 24px;
+}
+
 .popup {
+  display: none;
   position: fixed;
   z-index: 200;
   top: 0;
@@ -1204,9 +1391,6 @@ h6 {
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.219);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1216,8 +1400,8 @@ h6 {
 }
 
 .popup__block {
-  max-width: 500px;
-  max-height: 600px;
+  max-width: 400px;
+  max-height: 500px;
   background-color: #fafafc;
   border-radius: 18px;
   -webkit-box-shadow: 0px 10px 35px -13px rgba(0, 0, 0, 0.34) inset;
@@ -1233,12 +1417,12 @@ h6 {
 
 .popup__content {
   position: relative;
-  padding: 50px 40px;
+  padding: 40px 30px;
 }
 
 @media (max-width: 500px) {
   .popup__content {
-    padding: 50px 15px;
+    padding: 40px 10px;
   }
 }
 
@@ -1246,20 +1430,20 @@ h6 {
   position: absolute;
   top: 5px;
   right: 20px;
-  font-size: 55px;
+  font-size: 45px;
 }
 
 .popup__title {
   text-align: center;
-  font-size: 36px;
+  font-size: 26px;
   line-height: 120%;
   color: #45525b;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 @media (max-width: 500px) {
   .popup__title {
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 
@@ -1271,12 +1455,12 @@ h6 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 25px;
+  gap: 20px;
 }
 
 .form__input {
-  padding: 15px 20px;
-  font-size: 20px;
+  padding: 10px 15px;
+  font-size: 15px;
   border-radius: 8px;
   border: 1px solid #45525b;
 }
@@ -1288,7 +1472,7 @@ h6 {
 .form__button {
   text-align: center;
   color: #fafafc;
-  font-size: 20px;
+  font-size: 15px;
   background-color: #45525bd7;
   border-radius: 6px;
   padding: 15px 20px;

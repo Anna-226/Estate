@@ -2,6 +2,53 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./js/modules/accordeon.js":
+/*!*********************************!*\
+  !*** ./js/modules/accordeon.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const accordeon = (triggerSelector, blockSelector) => {
+   const titles = document.querySelectorAll(triggerSelector),
+         blocks = document.querySelectorAll(blockSelector);
+   titles.forEach((title, i) => {
+      title.addEventListener('click', () => {
+         if (window.innerWidth <= 479.98 ) {
+            if (!title.classList.contains('active')) {
+               showBlock(titles, i);
+            } else {
+               hideAll();
+            }
+         } else {
+            //как автоматически перестроить обратно при ресайзе??
+            blocks.forEach(block => {
+               block.style.display = 'block';
+            });
+         }
+      });
+   });
+   function showBlock(elems, n) {
+      hideAll();
+      blocks[n].style.display = 'block';
+      blocks[n].previousElementSibling.classList.add('active');
+   }
+   function hideAll() {
+      blocks.forEach(block => {
+         block.style.display = 'none';
+         block.previousElementSibling.classList.remove('active');
+      });
+   }
+};
+  
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (accordeon);
+
+
+/***/ }),
+
 /***/ "./js/modules/burger.js":
 /*!******************************!*\
   !*** ./js/modules/burger.js ***!
@@ -33,6 +80,78 @@ const burger = () => {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (burger);
+
+/***/ }),
+
+/***/ "./js/modules/modal.js":
+/*!*****************************!*\
+  !*** ./js/modules/modal.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const modal = () => {
+   function bindModal(triggerSelector, modalSelector, closeSelector) {
+   
+      const triggers = document.querySelectorAll(triggerSelector),
+            modal = document.querySelector(modalSelector),
+            closeBtns = document.querySelectorAll(closeSelector),
+            modalWindows = document.querySelectorAll('[data-modal]'),
+            scrollbar = calcScrollbar();
+       
+      triggers.forEach(item =>{
+         item.addEventListener('click', (e) =>{
+            e.preventDefault();
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            document.body.style.marginRight = scrollbar + 'px';
+         });
+      });
+      
+      function closeModal() {
+         modal.style.display = 'none';
+         document.body.style.overflow = 'auto';
+         document.body.style.marginRight = `0px`;
+      }
+
+      closeBtns.forEach(item =>{
+         item.addEventListener('click', ()=>{
+            closeModal();
+         });
+      });
+
+      document.addEventListener('click', (e) => {
+         if (e.target && e.target === modal) {
+            closeModal();
+         }
+      });
+
+      document.addEventListener('keydown', function (e) {
+         if(e.key === 'Escape') {
+            closeModal();
+         }
+      }); 
+   }
+   function calcScrollbar() {
+      let techDiv = document.createElement('div');
+      techDiv.style.width = '50px';
+      techDiv.style.height = '50px';
+      techDiv.style.overflowY = 'scroll';
+      techDiv.style.visibility = 'hidden';
+      document.body.append(techDiv);
+      let scrollbarWidth = techDiv.offsetWidth - techDiv.clientWidth;
+      techDiv.remove();
+      return scrollbarWidth;
+   }
+
+   bindModal('.contact__button', '.popup', '.popup__close');
+};
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);
 
 /***/ }),
 
@@ -215,6 +334,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/burger */ "./js/modules/burger.js");
 /* harmony import */ var _modules_scrolling__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/scrolling */ "./js/modules/scrolling.js");
 /* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/slider */ "./js/modules/slider.js");
+/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/modal */ "./js/modules/modal.js");
+/* harmony import */ var _modules_accordeon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/accordeon */ "./js/modules/accordeon.js");
+
+
 
 
 
@@ -230,6 +353,8 @@ window.addEventListener('DOMContentLoaded', () => {
       btnPrevSelector: '.testimonials__button_prev',
       btnNextSelector: '.testimonials__button_next',
    });
+   (0,_modules_modal__WEBPACK_IMPORTED_MODULE_3__["default"])();
+   (0,_modules_accordeon__WEBPACK_IMPORTED_MODULE_4__["default"])('.links-footer__title', '.links-footer__links');
    /* document.addEventListener("watcherCallback", function (e) {
       const entry = e.detail.entry;
       const targetElement = entry.target;
@@ -242,6 +367,8 @@ window.addEventListener('DOMContentLoaded', () => {
          }
       }
    }); */
+
+   
 });
 })();
 

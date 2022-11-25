@@ -623,7 +623,7 @@ h6 {
   color: #6f7278;
 }
 
-.cottage-video video {
+.cottage-picture img {
   width: 100%;
   max-height: 600px;
   -o-object-fit: cover;
@@ -1408,7 +1408,7 @@ h6 {
           box-shadow: 0px 10px 35px -13px rgba(0, 0, 0, 0.34) inset;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 400px) {
   .popup__block {
     width: 100%;
     border-radius: 0;

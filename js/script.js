@@ -3,6 +3,8 @@ import scrolling from './modules/scrolling';
 import slider from './modules/slider';
 import modal from './modules/modal';
 import accordeon from './modules/accordeon';
+import mask from './modules/mask';
+import forms from './modules/forms';
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -17,18 +19,6 @@ window.addEventListener('DOMContentLoaded', () => {
    });
    modal();
    accordeon('.links-footer__title', '.links-footer__links');
-   /* document.addEventListener("watcherCallback", function (e) {
-      const entry = e.detail.entry;
-      const targetElement = entry.target;
-      console.log(targetElement);
-      if (targetElement.dataset.watch === 'video') {
-         if (entry.isIntersecting) {
-            targetElement.querySelector('video').play();
-         } else {
-            targetElement.querySelector('video').pause();
-         }
-      }
-   }); */
-
-   
+   mask('.form__input_phone');
+   forms();
 });

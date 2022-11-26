@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Poppins:regular&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Poppins:regular,700&display=swap);
 @use "sass:math";
 * {
   padding: 0px;
@@ -1256,6 +1256,10 @@ h6 {
 @media (max-width: 479.98px) {
   .links-footer__title {
     margin-top: 9px;
+    cursor: pointer;
+  }
+  .links-footer__title:hover {
+    color: #c24f29;
   }
 }
 
@@ -1269,6 +1273,10 @@ h6 {
   display: block;
   margin-bottom: 9px;
   color: #ffffff;
+}
+
+.links-footer__link:hover {
+  color: #ffffff6e;
 }
 
 .subscribe {
@@ -1299,13 +1307,34 @@ h6 {
   margin-bottom: 10px;
 }
 
-.subscribe__input {
+.subscribe__form {
   max-width: 458px;
   background-color: #f9fafb;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
+}
+
+.subscribe__input {
+  width: 100%;
+  padding: 15px 34px;
+}
+
+.subscribe__input::-webkit-input-placeholder {
+  color: #6f7278;
+}
+
+.subscribe__input:-ms-input-placeholder {
+  color: #6f7278;
+}
+
+.subscribe__input::-ms-input-placeholder {
+  color: #6f7278;
+}
+
+.subscribe__input::placeholder {
+  color: #6f7278;
 }
 
 .subscribe__button {
@@ -1316,27 +1345,6 @@ h6 {
   position: absolute;
   top: 7px;
   right: 7px;
-}
-
-.input {
-  width: 100%;
-  padding: 15px 34px;
-}
-
-.input::-webkit-input-placeholder {
-  color: #6f7278;
-}
-
-.input:-ms-input-placeholder {
-  color: #6f7278;
-}
-
-.input::-ms-input-placeholder {
-  color: #6f7278;
-}
-
-.input::placeholder {
-  color: #6f7278;
 }
 
 .copyright {
@@ -1418,6 +1426,7 @@ h6 {
 .popup__content {
   position: relative;
   padding: 40px 30px;
+  text-align: center;
 }
 
 @media (max-width: 500px) {

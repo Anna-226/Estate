@@ -5,6 +5,7 @@ import modal from './modules/modal';
 import accordeon from './modules/accordeon';
 import mask from './modules/mask';
 import forms from './modules/forms';
+import showMoreCards from './modules/showMoreCards';
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -21,4 +22,5 @@ window.addEventListener('DOMContentLoaded', () => {
    accordeon('.links-footer__title', '.links-footer__links');
    mask('.form__input_phone');
    forms();
+   showMoreCards('.listings__button', '.houses-list');
 });

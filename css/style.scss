@@ -1,6 +1,6 @@
 @use "sass:math";
 
-@import url(https://fonts.googleapis.com/css?family=Poppins:regular&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Poppins:regular,700&display=swap);
 
 * {
   padding: 0px;
@@ -1198,6 +1198,10 @@ h6 {
     margin-bottom: 9px;
     @media (max-width: 479.98px) {
       margin-top: 9px;
+      cursor: pointer;
+      &:hover {
+        color: #c24f29;
+      }
     }
   }
 
@@ -1215,6 +1219,9 @@ h6 {
     display: block;
     margin-bottom: 9px;
     color: #ffffff;
+    &:hover{
+     color: #ffffff6e;
+    }
   }
 }
 .subscribe {
@@ -1241,15 +1248,24 @@ h6 {
     margin-bottom: 10px;
   }
 
-  // .subscribe__input
+  // .subscribe__form
 
-  &__input {
+  &__form {
     max-width: 458px;
     background-color: #f9fafb;
     border: 1px solid #e5e7eb;
     border-radius: 8px;
     overflow: hidden;
     position: relative;
+  }
+
+  // .subscribe__input
+  &__input {
+    width: 100%;
+    padding: 15px 34px;
+    &::placeholder {
+      color: #6f7278;
+    }
   }
   // .subscribe__button
 
@@ -1261,13 +1277,6 @@ h6 {
     position: absolute;
     top: 7px;
     right: 7px;
-  }
-}
-.input {
-  width: 100%;
-  padding: 15px 34px;
-  &::placeholder {
-    color: #6f7278;
   }
 }
 .copyright {
@@ -1302,7 +1311,6 @@ h6 {
     height: 24px;
   }
 }
-
 //------------------------------------------------------------------------------------------------------------------------------
 .popup {
   display: none;
@@ -1334,6 +1342,7 @@ h6 {
   &__content {
     position: relative;
     padding: 40px 30px;
+    text-align: center;
     @media (max-width: 500px) {
       padding: 40px 10px;
     }

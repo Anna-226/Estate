@@ -6,43 +6,40 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Estate</title>
    <link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 </head>
 <body>
    <div class="wrapper">
-		<header id="header" class="header">
+		<header  class="header">
 			<div class="header__container">
-					<div class="header__column header__column_left">
-						<div class="header__logo">
-							<a href="#header">
-								<img src="img/logo/logo.svg" alt="main-logo">
-							</a>
-						</div>
+				<div class="header__column header__column_left">
+					<div class="header__logo">
+						<a href="#up">
+							<img src="img/logo/logo.svg" alt="main-logo">
+						</a>
 					</div>
-					<div class="header__column">
-						<nav class="header__menu">
-							<ul class="menu">
-								<li class="menu__item">
-									<a href="#listings" class="menu__link">Listings</a>
-								</li>
-								<li class="menu__item">
-									<a href="#newsroom" class="menu__link">Newsroom</a>
-								</li>
-								<li class="menu__item">
-									<a href="#" class="menu__link">Contact</a>
-								</li>
-								<li class="menu__item">
-									<a href="#ourTeam" class="menu__link">Our team</a>
-								</li>
-							</ul>
-						</nav>
-						<button type="button" class="menu__icon icon-menu"><span></span></button>
-					</div>
-					
 				</div>
+				<div class="header__column">
+					<nav class="header__menu">
+						<ul class="menu">
+							<li class="menu__item">
+								<a href="#listings" class="menu__link">Listings</a>
+							</li>
+							<li class="menu__item">
+								<a href="#newsroom" class="menu__link">Newsroom</a>
+							</li>
+							<li class="menu__item">
+								<a href="#contact" class="menu__link">Contact</a>
+							</li>
+							<li class="menu__item">
+								<a href="#ourTeam" class="menu__link">Our team</a>
+							</li>
+						</ul>
+					</nav>
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+				</div>
+			</div>
 		</header>
-		<main class="main">
+		<main id="up" class="main">
 			<div class="main-banner">
 				<div class="main-banner__heading">
 					<div class="main-banner__logo">
@@ -330,7 +327,7 @@
 							</div>
 						</a>
 					</div>
-					<button class="listings__button button">Show all listings</button>
+					<button class="listings__button button">Show more listings</button>
 				</div>
 			</section>
 			<section id="ourTeam"class="people">
@@ -544,7 +541,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="contact">
+			<section id ='contact' class="contact">
 				<div class="contact__container">
 					<div class="contact__title block-title">
 						<div class="block-title__subtitle block-title__subtitle_white">Seen enough?</div>
@@ -567,19 +564,19 @@
 					<div class="main-footer__column links-footer">
 							<div class="links-footer__title">Pages</div>
 							<div class="links-footer__links">
-								<a href="#" class="links-footer__link">Start</a>
-								<a href="#" class="links-footer__link">Listings</a>
+								<a href="#up" class="links-footer__link">Start</a>
+								<a href="#listings" class="links-footer__link">Listings</a>
 								<a href="#" class="links-footer__link">Listings alt. 2</a>
-								<a href="#" class="links-footer__link">Contact</a>
+								<a href="#contact" class="links-footer__link">Contact</a>
 								<a href="#" class="links-footer__link">Legal</a>
 							</div>
 					</div>
 					<div class="main-footer__column links-footer">
 						<div class="links-footer__title">Company</div>
 						<div class="links-footer__links">
-							<a href="#" class="links-footer__link">About</a>
-							<a href="#" class="links-footer__link">Our team</a>
-							<a href="#" class="links-footer__link">Newsroom</a>
+							<a href="#goal" class="links-footer__link">About</a>
+							<a href="#ourTeam" class="links-footer__link">Our team</a>
+							<a href="#newsroom" class="links-footer__link">Newsroom</a>
 						</div>
 					</div>
 					<div class="main-footer__column links-footer">
@@ -595,27 +592,27 @@
 					<div class="main-footer__column subscribe">
 						<div class="subscribe__title">Newsletter</div>
 						<div class="subscribe__text">Subscribe to our (infrequent) newsletter where we share news about upcoming listings and projects.</div>
-						<div class="subscribe__input">
-							<input autocomplete="on" type="text" name="form[]" data-error="Ошибка" placeholder="Email" class="input">
-							<button class='subscribe__button' type="submit">Submit</button>
-						</div>
+						<form class="subscribe__form">
+							<input autocomplete="on" type="text" name="email" placeholder="Email" required class="subscribe__input">
+							<button class='subscribe__button'>Submit</button>
+						</form>
 					</div>
 				</div>
 				<div class="footer__third-floor copyright">
 					<div class="copyright__text">© Estate, LLC. All rights reserved. Powered by Webflow</div>
 					<div class="copyright__social">
-						<div class="copyright__icon">
+						<a href="#" class="copyright__icon">
 							<img src="img/icons/in.svg" alt="icon">
-						</div>
-						<div class="copyright__icon">
+						</a>
+						<a href="#" class="copyright__icon">
 							<img src="img/icons/facebook.svg" alt="icon">
-						</div>
-						<div class="copyright__icon">
+						</a>
+						<a href="#" class="copyright__icon">
 							<img src="img/icons/insta.svg" alt="icon">
-						</div>
-						<div class="copyright__icon">
+						</a>
+						<a href="#" class="copyright__icon">
 							<img src="img/icons/Twitter.svg" alt="icon">
-						</div>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -634,15 +631,13 @@
 						</div>
 					</div>
 				</div>
-			</div>
+		</div>
 		<a href="#up" class="pageup">
 				<svg class="pageup__svg" viewBox="0 0 26 26" fill="#fff" xmlns="http://www.w3.org/2000/svg">
 					<path fill-rule="evenodd" clip-rule="evenodd" d="M26 0H0V26H26V0ZM4.6593 17.7519L13.1233 10.33L21.5873 17.7519L22.9059 16.2481L13.7826 8.24813L13.1233 7.67L12.464 8.24813L3.3407 16.2481L4.6593 17.7519Z" fill="black"/>
 				</svg>
-			</a>
+		</a>
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script type="text/javascript" src="slick/slick.min.js"></script>
    <script src="dist/bundle.js"></script>
 </body>
 </html>

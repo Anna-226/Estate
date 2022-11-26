@@ -104,9 +104,9 @@ const forms = () => {
       loading: 'Загрузка...',
       success: "Спасибо! С Вами свяжется специалист!",
       failure: "Что-то пошло не так...",
-      spinner: 'assets/img/spinner.gif',
-      ok: 'assets/img/ok.png',
-      fail: 'assets/img/fail.png', 
+      spinner: '../../img/spinner.gif',
+      ok: '../../img/ok.png',
+      fail: '../../img/fail.png', 
    };
 
    const clearInputs = () => {
@@ -121,21 +121,18 @@ const forms = () => {
          
          let statusMessage = document.createElement('div');
          statusMessage.classList.add('status');
-         setTimeout(() => {
-            item.style.display = 'none';
-         }, 400);
+         item.style.display = 'none';
          item.parentNode.appendChild(statusMessage);
 
          let statusImg = document.createElement('img');
          statusImg.setAttribute('src', message.spinner);
          statusMessage.appendChild(statusImg);
 
-
          let statusText = document.createElement('div');
          statusText.textContent = message.loading;
          statusMessage.appendChild(statusText);
 
-         const formData =  new FormData(item); 
+         const formData =  new FormData(item);
 
          (0,_services_requests__WEBPACK_IMPORTED_MODULE_0__.postData)('../../server.php', formData)
             .then(res => {
@@ -151,7 +148,7 @@ const forms = () => {
                clearInputs();
                setTimeout(() => {
                   statusMessage.remove();
-                  item.style.display = 'block';
+                  item.style.display = 'flex';
                }, 5000);
             });
       });
@@ -346,6 +343,73 @@ const scrolling = () => {
 
 /***/ }),
 
+/***/ "./js/modules/showMoreCards.js":
+/*!*************************************!*\
+  !*** ./js/modules/showMoreCards.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _services_requests__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/requests */ "./js/services/requests.js");
+
+
+const showMoreCards = (triggerSelector, wrapper) => {
+   const btn = document.querySelector(triggerSelector);
+
+   //подгрузка карточек из БД
+   btn.addEventListener('click', function() {
+      (0,_services_requests__WEBPACK_IMPORTED_MODULE_0__.getResource)('http://localhost:3000/cards') 
+         .then(res => createCard(res))
+         .catch(error => console.log(error));
+   });
+
+   function createCard(response) {
+      response.forEach(({link, src, type, adress, beds, bathrooms, rooms}) => {
+         let styleCard = document.createElement('a');
+         styleCard.classList.add('house-card');
+         styleCard.setAttribute('href', link);
+         styleCard.innerHTML =  
+                  `  <div class="house-card__photo">
+								<img src="${src}" alt="house">
+							</div>
+							<div class="house-card__description">
+								<div class="house-card__main-information">
+									<div class="house-card__type">${type}</div>
+									<div class="house-card__adress">${adress}</div>
+								</div>
+								<div class="house-card__parametres">
+									<div class="parametres-item">
+										<div class="parametres-item__icon">
+											<img src="img/icons/Bed-Icon.svg" alt="bed-icon">
+										</div>
+										<div class="parametres-item__text">${beds}</div>
+									</div>
+									<div class="parametres-item">
+										<div class="parametres-item__icon">
+											<img src="img/icons/Bath-Icon.svg" alt="bed-icon">
+										</div>
+										<div class="parametres-item__text">${bathrooms}</div>
+									</div>
+									<div class="parametres-item">
+										<div class="parametres-item__icon">
+											<img src="img/icons/Door-Icon.svg" alt="bed-icon">
+										</div>
+										<div class="parametres-item__text">${rooms}</div>
+									</div> 
+								</div>
+							</div>`;
+         document.querySelector(wrapper).appendChild(styleCard);
+      });
+   }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (showMoreCards);
+
+/***/ }),
+
 /***/ "./js/modules/slider.js":
 /*!******************************!*\
   !*** ./js/modules/slider.js ***!
@@ -514,6 +578,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_accordeon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/accordeon */ "./js/modules/accordeon.js");
 /* harmony import */ var _modules_mask__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/mask */ "./js/modules/mask.js");
 /* harmony import */ var _modules_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/forms */ "./js/modules/forms.js");
+/* harmony import */ var _modules_showMoreCards__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/showMoreCards */ "./js/modules/showMoreCards.js");
+
 
 
 
@@ -537,6 +603,7 @@ window.addEventListener('DOMContentLoaded', () => {
    (0,_modules_accordeon__WEBPACK_IMPORTED_MODULE_4__["default"])('.links-footer__title', '.links-footer__links');
    (0,_modules_mask__WEBPACK_IMPORTED_MODULE_5__["default"])('.form__input_phone');
    (0,_modules_forms__WEBPACK_IMPORTED_MODULE_6__["default"])();
+   (0,_modules_showMoreCards__WEBPACK_IMPORTED_MODULE_7__["default"])('.listings__button', '.houses-list');
 });
 })();
 

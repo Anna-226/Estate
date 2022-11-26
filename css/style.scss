@@ -1277,6 +1277,9 @@ h6 {
     position: absolute;
     top: 7px;
     right: 7px;
+    &:hover {
+      background: #7a8181;
+    }
   }
 }
 .copyright {

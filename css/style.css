@@ -1347,6 +1347,10 @@ h6 {
   right: 7px;
 }
 
+.subscribe__button:hover {
+  background: #7a8181;
+}
+
 .copyright {
   display: -webkit-box;
   display: -ms-flexbox;

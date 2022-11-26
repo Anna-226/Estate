@@ -1,0 +1,31 @@
+{
+   "cards": [
+      {
+         "link": "#",
+         "src": "img/ad/ad1.jpg",
+         "type": "House",
+         "adress": "California St.",
+         "beds": "16 beds",
+         "bathrooms": "2 bathrooms",
+         "rooms": "11 rooms"
+      },
+      {
+         "link": "#",
+         "src": "img/ad/ad1.jpg",
+         "type": "House",
+         "adress": "California St.",
+         "beds": "16 beds",
+         "bathrooms": "2 bathrooms",
+         "rooms": "11 rooms"
+      },
+      {
+         "link": "#",
+         "src": "img/ad/ad1.jpg",
+         "type": "House",
+         "adress": "California St.",
+         "beds": "16 beds",
+         "bathrooms": "2 bathrooms",
+         "rooms": "11 rooms"
+      }
+   ]
+}

@@ -1413,6 +1413,11 @@ h6 {
 }
 .pageup {
   display: none;
+  position: fixed;
+  bottom: 50px;
+  right: 60px;
+  width: 40px;
+  height: 40px;
   // .pageup__svg
 
   &__svg {

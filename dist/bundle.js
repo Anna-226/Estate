@@ -337,6 +337,15 @@ const scrolling = () => {
          }
       });
    });
+
+   const  upBtn = document.querySelector('.pageup');
+   window.addEventListener('scroll', () => {
+      if (document.documentElement.scrollTop > 1650) {
+         upBtn.style.display = 'block';
+      } else {
+         upBtn.style.display = 'none';
+      }
+   });
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (scrolling);

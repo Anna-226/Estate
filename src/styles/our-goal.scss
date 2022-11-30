@@ -1,0 +1,153 @@
+.our-goal {
+  background-color: #fafafc;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  // .our-goal__container
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    @media (max-width: 767.98px) {
+      flex-direction: column;
+    }
+  }
+
+  // .our-goal__column
+
+  &__column {
+    flex: 0 0 49%;
+  }
+
+  // .our-goal__title
+
+  &__title {
+  }
+
+  // .our-goal__text-block
+
+  &__text-block {
+  }
+}
+.block-title {
+  // .block-title__subtitle
+
+  &__subtitle {
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #ff8a63;
+    // .block-title__subtitle_left
+
+    &_left {
+      text-align: left;
+      @media (max-width: 767.98px) {
+        text-align: center;
+      }
+    }
+    // .block-title__subtitle_white
+
+    &_white {
+      color: #fafafc;
+    }
+  }
+
+  // .block-title__title
+
+  &__title {
+    font-size: 36px;
+    line-height: 120%;
+    text-align: center;
+    color: #45525b;
+    margin-top: -4px;
+    // .block-title__title_big
+
+    &_big {
+      font-size: 48px;
+      line-height: 110%;
+      padding-right: 95px;
+      margin-top: -8px;
+      @media (max-width: 767.98px) {
+        padding-right: 0;
+        text-align: left;
+      }
+    }
+    // .block-title__title_left
+
+    &_left {
+      text-align: left;
+      @media (max-width: 767.98px) {
+        text-align: center;
+      }
+    }
+    // .block-title__title_white
+
+    &_white {
+      color: #fafafc;
+    }
+  }
+}
+.block-text {
+  @media (max-width: 767.98px) {
+    text-align: center;
+  }
+  // .block-text__text
+
+  &__text {
+    color: #333333;
+    & p:not(:last-child) {
+      margin-bottom: 8px;
+    }
+    margin-bottom: 19px;
+  }
+
+  // .block-text__author
+
+  &__author {
+    @media (max-width: 767.98px) {
+      justify-content: center;
+    }
+  }
+}
+.persone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  // .persone__photo
+
+  &__photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    & img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  // .persone__information
+
+  &__information {
+  }
+
+  // .persone__name
+
+  &__name {
+    color: #45525b;
+  }
+
+  // .persone__position
+
+  &__position {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6f7278;
+  }
+}

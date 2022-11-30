@@ -1,0 +1,142 @@
+.testimonials {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  // .testimonials__container
+
+  &__container {
+  }
+
+  // .testimonials__title
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  // .testimonials__slider
+
+  &__slider {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -2000px;
+      height: 100%;
+      width: 2000px;
+      background-color: #fff;
+    }
+  }
+
+  // .testimonials__wrapper
+
+  &__wrapper {
+    margin-bottom: 19.52px;
+  }
+
+  // .testimonials__slide
+
+  &__slide {
+    width: 584px;
+    @media (max-width: 650px) {
+      width: 300px;
+    }
+  }
+
+  // .testimonials__buttons
+
+  &__buttons {
+    display: flex;
+    column-gap: 50px;
+    padding: 19px 20px;
+    justify-content: flex-end;
+  }
+
+  // .testimonials__button
+
+  &__button {
+    position: relative;
+    width: 20px;
+    height: 22px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -19px;
+      left: -19px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #52503b;
+      transition: all 0.3s ease 0s;
+    }
+    &:hover {
+      &::before {
+        border: 2px solid rgb(138, 182, 231);
+      }
+    }
+    @media (max-width: 767.98px) {
+      &::before {
+        display: none;
+      }
+    }
+    // .testimonials__button_prev
+
+    &_prev {
+      background: url("../img/icons/Arrow2.svg") 0 0 / cover no-repeat;
+    }
+
+    // .testimonials__button_next
+
+    &_next {
+      background: url("../img/icons/Arrow3.svg") 0 0 / cover no-repeat;
+    }
+  }
+}
+.feedback {
+  border: 1px solid rgba(82, 80, 59, 0.1);
+  border-radius: 4px;
+  padding: 31px;
+  // .feedback__stars
+
+  &__stars {
+    display: flex;
+    column-gap: 2px;
+    margin-bottom: 8px;
+    & img {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  // .feedback__title
+
+  &__title {
+    font-size: 24px;
+    line-height: 120%;
+    color: #333333;
+    margin-bottom: 11px;
+  }
+
+  // .feedback__text
+
+  &__text {
+    font-size: 15px;
+    color: #333333;
+    margin-bottom: 19px;
+  }
+
+  // .feedback__author
+
+  &__author {
+    line-height: 100%;
+    color: #45525b;
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    &::before {
+      content: "";
+      width: 2px;
+      height: 24px;
+      background-color: #ff8a63;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+.people {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  // .people__container
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 64px;
+    @media (max-width: 991.98px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  // .people__column
+
+  &__column {
+    //people__column_content
+    &_content {
+      max-width: 368px;
+      @media (max-width: 991.98px) {
+        max-width: 100%;
+      }
+    }
+    //people__column_people
+    &_people {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      @media (max-width: 767.98px) {
+        justify-content: space-around;
+      }
+    }
+  }
+
+  // .people__title
+
+  &__title {
+    margin-bottom: 13px;
+  }
+
+  // .people__text
+
+  &__text {
+    margin-bottom: 20px;
+    @media (max-width: 767.98px) {
+      text-align: center;
+    }
+  }
+
+  // .people__button
+
+  &__button {
+    @media (max-width: 767.98px) {
+      margin: 0 auto;
+    }
+  }
+
+  // .people__employee
+
+  &__employee {
+    flex: 0 0 45%;
+    @media (max-width: 479.98px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}

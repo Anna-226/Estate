@@ -1,0 +1,55 @@
+.contact {
+  background-color: #45525b;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  // .contact__container
+
+  &__container {
+  }
+
+  // .testimonials__title
+
+  &__title {
+    margin-bottom: 13px;
+  }
+
+  // .contact__text
+
+  &__text {
+    font-size: 18px;
+    line-height: 120%;
+    text-align: center;
+    color: #fafafc;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  // .contact__buttons
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    @media (max-width: 479.98px) {
+      flex-direction: column;
+    }
+  }
+
+  // .contact__button
+
+  &__button {
+    text-align: center;
+    color: #45525b;
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 11px 18px;
+    @media (max-width: 479.98px) {
+      width: 100%;
+    }
+    &:hover {
+      box-shadow: 0px 5px 25px 1px rgba(0, 0, 0, 0.42) inset;
+    }
+  }
+}

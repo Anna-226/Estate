@@ -53,7 +53,7 @@
     bottom: 7.63%;
     width: 20px;
     &::before {
-      display: none;
+      opacity: 0;
       content: "";
       position: absolute;
       top: -22px;
@@ -62,10 +62,11 @@
       height: 64px;
       border-radius: 50%;
       border: 2px solid #3a4443;
+      transition: all 0.3s ease 0s;
     }
     &:hover {
       &::before {
-        display: block;
+        opacity: 1;
       }
     }
     @media (max-width: 767.98px) {

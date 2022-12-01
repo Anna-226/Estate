@@ -5,12 +5,9 @@ const forms = () => {
          inputs = document.querySelectorAll('input');
 
    const message = {
-      loading: 'Загрузка...',
-      success: "Спасибо! С Вами свяжется специалист!",
-      failure: "Что-то пошло не так...",
-      //spinner: '../../img/spinner.gif',
-      //ok: '../../img/ok.png',
-      //fail: '../../img/fail.png', 
+      loading: 'Loading...',
+      success: "Thanks! A specialist will contact you!",
+      failure: "Something went wrong...",
    };
 
    const clearInputs = () => {
@@ -24,7 +21,6 @@ const forms = () => {
          e.preventDefault();
          
          let statusMessage = document.createElement('div');
-        // statusMessage.classList.add('status-loading');
          item.style.display = 'none';
          item.parentNode.appendChild(statusMessage);
 
@@ -41,10 +37,12 @@ const forms = () => {
          postData('../../server.php', formData)
             .then(res => {
                console.log(res);
+               statusImg.classList.remove('status-loading');
                statusImg.classList.add('status-ok');
                statusText.textContent = message.success;
             })
             .catch(() => {
+               statusImg.classList.remove('status-loading');
                statusImg.classList.add('status-fail');
                statusText.textContent = message.failure;
             })

@@ -1,7 +1,7 @@
 const scrolling = () => {
 
    let links = document.querySelectorAll('[href^="#"]'),
-       speed = 0.7;
+       speed = 0.6;
 
    links.forEach(link => {
       link.addEventListener('click', function(event) {

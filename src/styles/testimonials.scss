@@ -1,6 +1,10 @@
 .testimonials {
   padding-top: 100px;
   padding-bottom: 100px;
+  @media (max-width: 767.98px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
   // .testimonials__container
 
   &__container {
@@ -49,6 +53,9 @@
     column-gap: 50px;
     padding: 19px 20px;
     justify-content: flex-end;
+    @media (max-width: 767.98px) {
+      padding-bottom: 0px;
+    }
   }
 
   // .testimonials__button

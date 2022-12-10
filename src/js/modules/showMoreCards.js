@@ -3,8 +3,16 @@ import { getResource } from "../services/requests";
 const showMoreCards = (triggerSelector, wrapper) => {
    const btn = document.querySelector(triggerSelector);
 
+	//подгрузка карточек из верстки
+	btn.addEventListener('click', function() {
+		document.querySelectorAll('.house-card_more').forEach(card=>{
+			card.classList.remove('hidden');
+		});
+		btn.remove();
+	});
+
    //подгрузка карточек из БД
-   btn.addEventListener('click', function() {
+   /* btn.addEventListener('click', function() {
       getResource('http://localhost:3000/cards') 
          .then(res => createCard(res))
          .catch(error => console.log(error));
@@ -47,7 +55,8 @@ const showMoreCards = (triggerSelector, wrapper) => {
 							</div>`;
          document.querySelector(wrapper).appendChild(styleCard);
       });
-   }
+   } */
+	
 };
 
 export default showMoreCards;

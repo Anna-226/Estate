@@ -1,3 +1,4 @@
+let openModal, closeModal;
 const modal = () => {
    function bindModal(triggerSelector, modalSelector, closeSelector) {
    
@@ -10,12 +11,16 @@ const modal = () => {
       triggers.forEach(item =>{
          item.addEventListener('click', (e) =>{
             e.preventDefault();
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            document.body.style.marginRight = scrollbar + 'px';
+            openModal();
          });
       });
       
+      openModal = () => {
+         modal.style.display = 'flex';
+         document.body.style.overflow = 'hidden';
+         document.body.style.marginRight = scrollbar + 'px';
+      };
+
       function closeModal() {
          modal.style.display = 'none';
          document.body.style.overflow = 'auto';
@@ -57,3 +62,4 @@ const modal = () => {
 
 
 export default modal;
+export {openModal, closeModal};

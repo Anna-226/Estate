@@ -1,4 +1,5 @@
 import { postData } from "../services/requests";
+import { openModal } from "./modal";
 
 const forms = () => {
    const form = document.querySelectorAll('form'),
@@ -15,15 +16,19 @@ const forms = () => {
          item.value = '';
       });
    }; 
-     
+   
+   function showThanksMessage(messageClass, messageText) {
+      
+   }
    form.forEach(item => {
       item.addEventListener('submit', (e) => {
          e.preventDefault();
-         
+         openModal();
+         const popupContent = document.querySelector('.popup__content');
+         popupContent.style.display = 'none';
          let statusMessage = document.createElement('div');
-         item.style.display = 'none';
-         item.parentNode.appendChild(statusMessage);
-
+         statusMessage.classList.add('popup__content');
+         popupContent.parentNode.appendChild(statusMessage);
          let statusImg = document.createElement('div');
          statusImg.classList.add('status-loading');
          statusMessage.appendChild(statusImg);
@@ -50,8 +55,11 @@ const forms = () => {
                clearInputs();
                setTimeout(() => {
                   statusMessage.remove();
-                  item.style.display = 'flex';
-               }, 5000);
+                  popupContent.style.display = 'block';
+                  document.querySelector('.popup').style.display = 'none';
+                  document.body.style.overflow = 'auto';
+                  document.body.style.marginRight = `0px`;
+               }, 3000);
             });
       });
    });

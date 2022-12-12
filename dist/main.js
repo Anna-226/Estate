@@ -126,6 +126,8 @@ var burger = function burger() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_requests__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/requests */ "./js/services/requests.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modal */ "./js/modules/modal.js");
+
 
 var forms = function forms() {
   var form = document.querySelectorAll('form'),
@@ -140,12 +142,16 @@ var forms = function forms() {
       item.value = '';
     });
   };
+  function showThanksMessage(messageClass, messageText) {}
   form.forEach(function (item) {
     item.addEventListener('submit', function (e) {
       e.preventDefault();
+      (0,_modal__WEBPACK_IMPORTED_MODULE_1__.openModal)();
+      var popupContent = document.querySelector('.popup__content');
+      popupContent.style.display = 'none';
       var statusMessage = document.createElement('div');
-      item.style.display = 'none';
-      item.parentNode.appendChild(statusMessage);
+      statusMessage.classList.add('popup__content');
+      popupContent.parentNode.appendChild(statusMessage);
       var statusImg = document.createElement('div');
       statusImg.classList.add('status-loading');
       statusMessage.appendChild(statusImg);
@@ -166,8 +172,11 @@ var forms = function forms() {
         clearInputs();
         setTimeout(function () {
           statusMessage.remove();
-          item.style.display = 'flex';
-        }, 5000);
+          popupContent.style.display = 'block';
+          document.querySelector('.popup').style.display = 'none';
+          document.body.style.overflow = 'auto';
+          document.body.style.marginRight = "0px";
+        }, 3000);
       });
     });
   });
@@ -233,6 +242,11 @@ var mask = function mask(selector) {
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "closeModal": function() { return /* binding */ closeModal; },
+/* harmony export */   "openModal": function() { return /* binding */ openModal; }
+/* harmony export */ });
+var openModal, closeModal;
 var modal = function modal() {
   function bindModal(triggerSelector, modalSelector, closeSelector) {
     var triggers = document.querySelectorAll(triggerSelector),
@@ -243,11 +257,14 @@ var modal = function modal() {
     triggers.forEach(function (item) {
       item.addEventListener('click', function (e) {
         e.preventDefault();
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-        document.body.style.marginRight = scrollbar + 'px';
+        openModal();
       });
     });
+    openModal = function openModal() {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      document.body.style.marginRight = scrollbar + 'px';
+    };
     function closeModal() {
       modal.style.display = 'none';
       document.body.style.overflow = 'auto';
@@ -283,6 +300,7 @@ var modal = function modal() {
   bindModal('.contact-modal', '.popup', '.popup__close');
 };
 /* harmony default export */ __webpack_exports__["default"] = (modal);
+
 
 /***/ }),
 
